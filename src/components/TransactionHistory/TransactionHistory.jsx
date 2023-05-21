@@ -1,4 +1,5 @@
-import css from './TransactionHistory.module.css'
+import PropTypes from 'prop-types';
+import css from './TransactionHistory.module.css';
 
 export default function TransactionHistory({ transactions }) {
   return (
@@ -25,3 +26,14 @@ export default function TransactionHistory({ transactions }) {
     </table>
   );
 }
+
+TransactionHistory.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    })
+  ),
+};
